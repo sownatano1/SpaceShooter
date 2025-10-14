@@ -19,8 +19,17 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
 
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
-        transform.Translate(Vector3.right * Time.deltaTime * shipSpeed * horizontalInput);
-        transform.Translate(Vector3.up * Time.deltaTime * shipSpeed * verticalInput);
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        // Båda inputs bli en vector "movement"
+        Vector3 movement = new Vector3(horizontalInput, verticalInput, 0);
+
+        // Normaliserar rörelse så det bli på samma hastighet.
+        if (movement.magnitude > 1)
+        {
+            movement = movement.normalized;
+        }
+
+        // Utför rörelsen med jämn hastighet
+        transform.Translate(movement * Time.deltaTime * shipSpeed);
     }
 }
