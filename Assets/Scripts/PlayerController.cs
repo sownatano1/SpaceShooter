@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 20f;
     public float shipSpeed = 10f;
     public float horizontalInput;
     public float verticalInput;
@@ -24,8 +23,6 @@ public class PlayerController : MonoBehaviour
         //Inputs
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
-
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
         // Båda inputs bli en vector "movement"
         Vector3 movement = new Vector3(horizontalInput, verticalInput, 0);
