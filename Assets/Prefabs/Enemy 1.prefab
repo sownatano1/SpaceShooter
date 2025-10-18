@@ -158,7 +158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f67397c931125ea4bb1fe8bcdfe1448b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ForwardMovement
-  speed: 6
+  minSpeed: 5
+  maxSpeed: 7
   isFoward: 1
 --- !u!114 &-7059417464466556654
 MonoBehaviour:

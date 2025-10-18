@@ -157,7 +157,7 @@ MonoBehaviour:
   speed: 10
   followingSpeed: 1
   player: {fileID: 0}
-  backSpeed: 3
+  backSpeed: 5
 --- !u!114 &3155539776415416943
 MonoBehaviour:
   m_ObjectHideFlags: 0

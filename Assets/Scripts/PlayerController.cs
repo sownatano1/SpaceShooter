@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -23,11 +24,15 @@ public class PlayerController : MonoBehaviour
     public float enemyDamage = 0.1f;
 
     public bool gameOver = false;
+    public GameObject gameOverUI;
+    public GameObject healthBarUI;
+    public Button restartButton;
 
     public GameObject projectilePrefab;
     void Start()
     {
         currentHealth = maxHealth;
+        restartButton.onClick.AddListener(RestartGame);
     }
 
     void Update()
@@ -65,6 +70,20 @@ public class PlayerController : MonoBehaviour
             ShootingProjectile();
             projectileTime = Time.time + projectileCooldown;
         }
+
+        if (gameOver == true)
+        {
+            gameOverUI.SetActive(true);
+            healthBarUI.SetActive(false);
+        }
+    }
+    void RestartGame()
+    {
+        gameOverUI.SetActive(false);
+        healthBarUI.SetActive(true);
+        currentHealth = currentHealth * 0 + maxHealth;
+        gameOver = false;
+
     }
 
     private void OnTriggerEnter(Collider other)
