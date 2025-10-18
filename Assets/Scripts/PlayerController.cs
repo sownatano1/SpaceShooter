@@ -1,3 +1,4 @@
+using System.Net.Sockets;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -27,6 +28,11 @@ public class PlayerController : MonoBehaviour
     public GameObject gameOverUI;
     public GameObject healthBarUI;
     public Button restartButton;
+
+    private float tiltAngle = 10f;
+    private float tiltSpeed = 3f;
+    private float targetTilt = 0f;
+    private float currentTilt = 0f;
 
     public GameObject projectilePrefab;
     void Start()
@@ -76,6 +82,10 @@ public class PlayerController : MonoBehaviour
             gameOverUI.SetActive(true);
             healthBarUI.SetActive(false);
         }
+
+        targetTilt = -horizontalInput * tiltAngle;
+        currentTilt = Mathf.Lerp(targetTilt, currentTilt, Time.deltaTime * tiltSpeed);
+        transform.rotation = Quaternion.Euler(0f,0f,currentTilt).normalized;
     }
     void RestartGame()
     {

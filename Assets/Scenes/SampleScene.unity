@@ -1427,6 +1427,7 @@ GameObject:
   - component: {fileID: 1058551166559703846}
   - component: {fileID: 3980760413837958258}
   - component: {fileID: 5824037921029415040}
+  - component: {fileID: 5824037921029415041}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1468,7 +1469,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4879603407927568896}
   - {fileID: 1415779705}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1509,12 +1509,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3063694840437482623}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.043619405, y: 0, z: 0, w: 0.9990483}
-  m_LocalPosition: {x: 0, y: 2.65, z: -3.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.043619405, y: -0, z: -0, w: 0.9990483}
+  m_LocalPosition: {x: 0, y: 2.6, z: -6}
+  m_LocalScale: {x: 1, y: 1.0075961, z: 1.992404}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3946849359014985394}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 5, y: 0, z: 0}
 --- !u!114 &5824037921029415040
 MonoBehaviour:
@@ -1560,12 +1560,26 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &5824037921029415041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3063694840437482623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ab5addb3c6abd04bbed7034540d4862, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraFollower
+  player: {fileID: 3748454440374633351}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 410087041}
   - {fileID: 832575519}
+  - {fileID: 4879603407927568896}
   - {fileID: 3946849359014985394}
   - {fileID: 669011914}
   - {fileID: 2055801976}
