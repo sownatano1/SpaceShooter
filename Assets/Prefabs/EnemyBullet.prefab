@@ -72,6 +72,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: aca16c37f33937345b9fea7a51d0c496, type: 2}
+  - {fileID: 2100000, guid: cd395fb560ed06c42b5c008954b1e133, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -154,10 +155,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40278b1636f3b224297ceb6cf67c2ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletTarget
-  speed: 10
+  speed: 12
   followingSpeed: 1
   player: {fileID: 0}
-  backSpeed: 5
+  backSpeed: 6
 --- !u!114 &3155539776415416943
 MonoBehaviour:
   m_ObjectHideFlags: 0

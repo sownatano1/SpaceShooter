@@ -72,6 +72,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f4bdbfdda285a0641846c47b606742f3, type: 2}
+  - {fileID: 2100000, guid: cd395fb560ed06c42b5c008954b1e133, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -154,8 +155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f67397c931125ea4bb1fe8bcdfe1448b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
-  minSpeed: 11
-  maxSpeed: 11
+  minSpeed: 15
+  maxSpeed: 15
   isFoward: 0
 --- !u!114 &2447242730222203355
 MonoBehaviour:
