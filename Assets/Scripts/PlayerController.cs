@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
     private float targetTilt = 0f;
     private float currentTilt = 0f;
 
+    public GameObject healthPowerUp;
+
     public GameObject projectilePrefab;
     void Start()
     {
@@ -102,6 +104,11 @@ public class PlayerController : MonoBehaviour
         {
             currentHealth = currentHealth - enemyDamage;
             print("Hit");
+        }
+
+        if (other.CompareTag("Health"))
+        {
+            currentHealth = currentHealth + 0.1f;
         }
     }
 
