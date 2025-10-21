@@ -7588,7 +7588,6 @@ MonoBehaviour:
   - {fileID: 1366346334676791857, guid: f9ee692df70f94048bb97c18e875278c, type: 3}
   - {fileID: 3759789954141002492, guid: f2eeee7eec5bf3f4989fe0afe479a1fb, type: 3}
   - {fileID: 6970382641636054512, guid: 6c4f35e43eb7ab142bbe47e39b3a4452, type: 3}
-  - {fileID: 6322133607108686242, guid: 746557f63e9137043817777b12a5b362, type: 3}
   zSpawnPos: 50
   startDelay: 1
   spawnDelay: 0.6
