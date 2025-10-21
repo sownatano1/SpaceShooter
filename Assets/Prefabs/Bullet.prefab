@@ -185,3 +185,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KillOnCollision
   isEnemyBullet: 0
+  explosion: {fileID: 1027467599711006712, guid: 8c226fab125b45540a18405bda5153ea, type: 3}
+  destroyable: 1

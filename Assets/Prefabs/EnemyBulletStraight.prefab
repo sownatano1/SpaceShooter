@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 9020585254461637530}
   - component: {fileID: 5745970107964155463}
   - component: {fileID: 2447242730222203355}
-  - component: {fileID: 6924427373658216298}
   m_Layer: 0
   m_Name: EnemyBulletStraight
   m_TagString: Enemy
@@ -172,16 +171,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DestroyOutOfBounds
   distanceToDestroy: -5
   isEnemy: 1
---- !u!114 &6924427373658216298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7384464104703149780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2fc7bf80fc717f4e81b0512b5b4abe7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::KillOnCollision
-  isEnemyBullet: 1

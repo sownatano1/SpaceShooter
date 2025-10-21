@@ -1,4 +1,5 @@
 using System.Net.Sockets;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public GameObject firePoint;
     public float projectileCooldown = 0.5f;
     float projectileTime = 0;
+    public GameObject projectilePrefab;
 
     public float maxHealth = 1;
     public float currentHealth;
@@ -36,7 +38,15 @@ public class PlayerController : MonoBehaviour
 
     public GameObject healthPowerUp;
 
-    public GameObject projectilePrefab;
+    public TextMeshProUGUI fireSpeedTMP;
+    private int fireSpeedPoints = 1;
+    public TextMeshProUGUI pointsText; 
+    public TextMeshProUGUI totalPointText;
+    private int points = 0;
+    public TextMeshProUGUI killsText;
+    private int kills = 0;
+
+    public Camera camera;
     void Start()
     {
         currentHealth = maxHealth;
@@ -73,7 +83,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Projectiles
-        if (Input.GetKeyDown(KeyCode.Space) && projectileTime <= Time.time)    
+        if (Input.GetKey(KeyCode.Space) && projectileTime <= Time.time)
         {
             ShootingProjectile();
             projectileTime = Time.time + projectileCooldown;
@@ -85,31 +95,49 @@ public class PlayerController : MonoBehaviour
             healthBarUI.SetActive(false);
         }
 
+        //Spaceship tilt to the sides
         targetTilt = -horizontalInput * tiltAngle;
         currentTilt = Mathf.Lerp(targetTilt, currentTilt, Time.deltaTime * tiltSpeed);
-        transform.rotation = Quaternion.Euler(0f,0f,currentTilt).normalized;
+        transform.rotation = Quaternion.Euler(0f, 0f, currentTilt).normalized;
     }
+
+    public void IncreaseFirePoints(int amount)
+    {
+        fireSpeedPoints += amount;
+        fireSpeedTMP.text = fireSpeedPoints.ToString();
+
+        if (projectileCooldown <= 0.2f)
+        {
+            projectileCooldown = 0.2f;
+            fireSpeedTMP.text = "MAX";
+        }
+    }
+    public void IncreaseScore(int amount)
+    {
+        points += amount;
+        pointsText.text = points.ToString();
+        totalPointText.text = points.ToString();
+    }
+
+    public void IncreaseKills(int amount)
+    {
+        kills += amount;
+        killsText.text = kills.ToString();
+    }
+
     void RestartGame()
     {
         gameOverUI.SetActive(false);
         healthBarUI.SetActive(true);
         currentHealth = currentHealth * 0 + maxHealth;
         gameOver = false;
-
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Enemy"))
-        {
-            currentHealth = currentHealth - enemyDamage;
-            print("Hit");
-        }
-
-        if (other.CompareTag("Health"))
-        {
-            currentHealth = currentHealth + 0.1f;
-        }
+        projectileCooldown = 0.5f;
+        kills = 0;
+        fireSpeedPoints = 1;
+        points = 0;
+        killsText.text = "0";
+        pointsText.text = "0";
+        fireSpeedTMP.text = "1";
     }
 
     void Border()
