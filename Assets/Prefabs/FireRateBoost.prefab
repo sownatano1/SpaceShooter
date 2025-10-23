@@ -278,6 +278,7 @@ GameObject:
   - component: {fileID: 5339655337746750145}
   - component: {fileID: 8419957675183353655}
   - component: {fileID: -8479864496560321423}
+  - component: {fileID: 8081071808051708418}
   m_Layer: 0
   m_Name: FireRateBoost
   m_TagString: FireRateBoost
@@ -348,6 +349,20 @@ MonoBehaviour:
   minSpeed: 4
   maxSpeed: 6
   isFoward: 0
+--- !u!114 &8081071808051708418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624088683564909530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a00d07496e19d41b8f5f8fd9a218b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyOutOfBounds
+  distanceToDestroy: -5
+  isEnemy: 1
 --- !u!1 &3821779668685273569
 GameObject:
   m_ObjectHideFlags: 0

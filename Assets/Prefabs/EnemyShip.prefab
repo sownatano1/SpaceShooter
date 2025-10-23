@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 191364403459934290}
   serializedVersion: 2
   m_LocalRotation: {x: -0.70710576, y: -0, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: -0.69200003, y: 0.2, z: -1.5726999}
-  m_LocalScale: {x: 0.27098748, y: 4.6741996, z: 0.270995}
+  m_LocalPosition: {x: -0.69200003, y: 0.2135, z: -1.5726999}
+  m_LocalScale: {x: 0.27098748, y: 4.6741996, z: 0.28405696}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9189744408422652928}
@@ -4618,6 +4618,7 @@ GameObject:
   - component: {fileID: 8824548285429189545}
   - component: {fileID: 862385644631774877}
   - component: {fileID: 6849641379041926042}
+  - component: {fileID: 9056908867304179364}
   m_Layer: 0
   m_Name: EnemyShip
   m_TagString: Enemy
@@ -4635,7 +4636,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 2, z: 0.6}
+  m_LocalScale: {x: 0.8, y: 2.5, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7069741555818749862}
@@ -4669,7 +4670,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -4720,6 +4721,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DestroyOutOfBounds
   distanceToDestroy: -12
   isEnemy: 1
+--- !u!54 &9056908867304179364
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366346334676791857}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 6
+  m_CollisionDetection: 0
 --- !u!1 &1933494235726577313
 GameObject:
   m_ObjectHideFlags: 0
@@ -4749,8 +4777,8 @@ Transform:
   m_GameObject: {fileID: 1933494235726577313}
   serializedVersion: 2
   m_LocalRotation: {x: -0.70710576, y: -0, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: 0.70153534, y: 0.2, z: -1.5726999}
-  m_LocalScale: {x: 0.27098748, y: 4.6741996, z: 0.270995}
+  m_LocalPosition: {x: 0.70153534, y: 0.2135, z: -1.5726999}
+  m_LocalScale: {x: 0.27098748, y: 4.6741996, z: 0.28405696}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9189744408422652928}

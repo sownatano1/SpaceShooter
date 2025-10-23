@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 6631927684801379461}
   - component: {fileID: 1896803475919758715}
   - component: {fileID: -2950826446995438485}
+  - component: {fileID: 2608470061556291588}
   m_Layer: 0
   m_Name: HealthPowerUp
   m_TagString: Health
@@ -251,3 +252,17 @@ MonoBehaviour:
   minSpeed: 4
   maxSpeed: 6
   isFoward: 0
+--- !u!114 &2608470061556291588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5179377360096188259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a00d07496e19d41b8f5f8fd9a218b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyOutOfBounds
+  distanceToDestroy: -5
+  isEnemy: 1

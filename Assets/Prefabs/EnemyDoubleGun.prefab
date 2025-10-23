@@ -3594,7 +3594,7 @@ Transform:
   m_GameObject: {fileID: 6004376947821603646}
   serializedVersion: 2
   m_LocalRotation: {x: -0.4999999, y: -0.49999854, z: 0.49999997, w: 0.50000167}
-  m_LocalPosition: {x: -2.8216, y: 0.0000000014049, z: -0.7999997}
+  m_LocalPosition: {x: -2.81, y: 0.0000000014049, z: -0.7999997}
   m_LocalScale: {x: 0.5118, y: 0.5118, z: 0.97155327}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6899,6 +6899,8 @@ GameObject:
   - component: {fileID: 4609163464019815889}
   - component: {fileID: 3666097070434736737}
   - component: {fileID: 1507099009909784841}
+  - component: {fileID: -377882930509115936}
+  - component: {fileID: -8265807084861952430}
   m_Layer: 0
   m_Name: EnemyDoubleGun
   m_TagString: Enemy
@@ -6947,7 +6949,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -7016,6 +7018,47 @@ MonoBehaviour:
   minFireCooldown: 3
   maxFireCooldown: 6
   firePos: {fileID: 5090025833581110689}
+--- !u!54 &-377882930509115936
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8279662493829920035}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 6
+  m_CollisionDetection: 0
+--- !u!114 &-8265807084861952430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8279662493829920035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a00d07496e19d41b8f5f8fd9a218b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyOutOfBounds
+  distanceToDestroy: -5
+  isEnemy: 1
 --- !u!1 &8683243940553188851
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,12 +10,15 @@ public class PowerUpSpawn : MonoBehaviour
 
     public float startDelay = 20f;
     public float spawnDelay = 15.0f;
+    public float minSpawnDelay = 12.0f;
+    public float maxSpawnDelay = 25.0f;
 
     private PlayerController playerController;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        InvokeRepeating("SpawnEnemy", startDelay, spawnDelay);
+        float randomSpawnDelay = Random.Range(minSpawnDelay, maxSpawnDelay);
+        InvokeRepeating("SpawnEnemy", startDelay, randomSpawnDelay);
         playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
     }
 

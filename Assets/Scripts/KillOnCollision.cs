@@ -6,6 +6,8 @@ public class KillOnCollision : MonoBehaviour
     public bool isEnemyBullet = false;
     private PlayerController playerController;
     public GameObject explosion;
+    public GameObject shieldExplosion;
+    public GameObject shield;
     public bool destroyable;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,7 +24,10 @@ public class KillOnCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        DestroyIfDestroyable();
+        if (destroyable == true && other.gameObject.CompareTag("ShieldPlayer") == false)
+        {
+            Destroy(gameObject);
+        }
 
         if (other.CompareTag("Enemy") && isEnemyBullet == false)
         {
@@ -41,25 +46,40 @@ public class KillOnCollision : MonoBehaviour
             }
         }
 
+        if (other.CompareTag("EnemyBullet") && isEnemyBullet == false)
+        {
+            Destroy(other.gameObject);
+            Instantiate(explosion, transform.position, explosion.transform.rotation);
+
+            if (destroyable == true)
+            {
+                playerController.IncreaseScore(2);
+            }
+
+            if (destroyable == false)
+            {
+                playerController.currentHealth = playerController.currentHealth - playerController.enemyDamage;
+            }
+        }
+
         if (other.CompareTag("Health"))
         {
             playerController.currentHealth = playerController.currentHealth + 0.1f;
             Destroy(other.gameObject);
         }
 
-        if (other.CompareTag("FireRateBoost"))
+        if (other.CompareTag("FireRateBoost") && isEnemyBullet == false)
         {
             playerController.IncreaseFirePoints(1);
             playerController.projectileCooldown = playerController.projectileCooldown - 0.05f;
             Destroy(other.gameObject);
         }
-    }
 
-    void DestroyIfDestroyable()
-    {
-        if (destroyable == true)
+        if (other.CompareTag("Shield") && isEnemyBullet == false)
         {
-            Destroy(gameObject);
+            Instantiate(shieldExplosion, transform.position, shieldExplosion.transform.rotation);
+            Destroy(other.gameObject);
+            Instantiate(shield);
         }
     }
 }

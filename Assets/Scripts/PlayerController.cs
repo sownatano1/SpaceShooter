@@ -12,20 +12,20 @@ public class PlayerController : MonoBehaviour
     public float shipSpeed = 10f;
     private float horizontalInput;
     private float verticalInput;
-
+    [Header("Border")]
     public float borderX = 10;
     public float borderY = 8;
-
+    [Header("Player Projectile")]
     public GameObject firePoint;
     public float projectileCooldown = 0.5f;
     float projectileTime = 0;
     public GameObject projectilePrefab;
-
+    [Header("Health")]
     public float maxHealth = 1;
     public float currentHealth;
     public Image healthBar;
     public float enemyDamage = 0.1f;
-
+    [Header("Game Over")]
     public bool gameOver = false;
     public GameObject gameOverUI;
     public GameObject healthBarUI;
@@ -35,9 +35,9 @@ public class PlayerController : MonoBehaviour
     private float tiltSpeed = 3f;
     private float targetTilt = 0f;
     private float currentTilt = 0f;
-
+    [Header("PowerUps")]
     public GameObject healthPowerUp;
-
+    [Header("TMP")]
     public TextMeshProUGUI fireSpeedTMP;
     private int fireSpeedPoints = 1;
     public TextMeshProUGUI pointsText; 
@@ -46,7 +46,6 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI killsText;
     private int kills = 0;
 
-    public Camera camera;
     void Start()
     {
         currentHealth = maxHealth;
