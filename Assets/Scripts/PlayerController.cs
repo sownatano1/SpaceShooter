@@ -42,14 +42,18 @@ public class PlayerController : MonoBehaviour
     private int fireSpeedPoints = 1;
     public TextMeshProUGUI pointsText; 
     public TextMeshProUGUI totalPointText;
-    private int points = 0;
+    private int points;
     public TextMeshProUGUI killsText;
     private int kills = 0;
+    public TextMeshProUGUI highScoreText;
 
     void Start()
     {
         currentHealth = maxHealth;
         restartButton.onClick.AddListener(RestartGame);
+
+        int highScore = PlayerPrefs.GetInt("HighScore", 0);
+        highScoreText.text = $"{highScore}";
     }
 
     void Update()
@@ -90,6 +94,7 @@ public class PlayerController : MonoBehaviour
 
         if (gameOver == true)
         {
+            UpdateScore(points);
             gameOverUI.SetActive(true);
             healthBarUI.SetActive(false);
         }
@@ -98,6 +103,19 @@ public class PlayerController : MonoBehaviour
         targetTilt = -horizontalInput * tiltAngle;
         currentTilt = Mathf.Lerp(targetTilt, currentTilt, Time.deltaTime * tiltSpeed);
         transform.rotation = Quaternion.Euler(0f, 0f, currentTilt).normalized;
+
+    }
+
+    public void UpdateScore(int score)
+    {
+        points = score;
+
+        int highScore = PlayerPrefs.GetInt("HighScore", 0);
+        if (points > highScore)
+        {
+            PlayerPrefs.SetInt("HighScore", points);
+            highScoreText.text = $"{points}";
+        }
     }
 
     public void IncreaseFirePoints(int amount)
