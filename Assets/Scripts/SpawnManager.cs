@@ -2,7 +2,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
 using UnityEngine.PlayerLoop;
-using UnityEditor.UIElements;
 using UnityEditor;
 
 public class SpawnManager : MonoBehaviour
@@ -35,7 +34,10 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (spawnDelay == 0.2)
+        {
+            spawnDelay = 0.2f;
+        }
     }
 
     void GenerateMeteor()
@@ -51,13 +53,15 @@ public class SpawnManager : MonoBehaviour
 
     void OpenDangerUI()
     {
+        playerController.alarmSound.Play();
         asteroidUI.SetActive(true);
         Invoke("CloseDangerUI", 4);
     }
     void CloseDangerUI()
     {
+        playerController.alarmSound.Stop();
         asteroidUI.SetActive(false);
-        Invoke("MakeMeteoring", 2);
+        Invoke("MakeMeteoring", 4);
         CancelInvoke("OpenDangerUI");
     }
 
@@ -89,6 +93,7 @@ public class SpawnManager : MonoBehaviour
                 Instantiate(asteroidPrefabs, spawnPos, asteroidPrefabs.transform.rotation);
             }
             Invoke("RestartMeteor", asteroidTime);
+            spawnDelay = spawnDelay - 0.025f;
         }
     }
     void RestartMeteor()

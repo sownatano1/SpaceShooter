@@ -24,6 +24,7 @@ public class Shield : MonoBehaviour
     {
         Destroy(gameObject);
         Instantiate(shieldExplosion, transform.position, shieldExplosion.transform.rotation);
+        playerController.shieldSound.Play();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,6 +35,7 @@ public class Shield : MonoBehaviour
             Instantiate(shieldExplosion, other.transform.position, shieldExplosion.transform.rotation);
             playerController.IncreaseKills(1);
             playerController.IncreaseScore(5);
+            playerController.RandomExplosionSound();
         }
 
         if (other.CompareTag("EnemyBullet"))
@@ -41,17 +43,20 @@ public class Shield : MonoBehaviour
             Destroy(other.gameObject);
             Instantiate(shieldExplosion, other.transform.position, shieldExplosion.transform.rotation);
             playerController.IncreaseScore(2);
+            playerController.RandomExplosionSound();
         }
 
         if (other.CompareTag("Health"))
         {
             Destroy(other.gameObject);
-            playerController.currentHealth = playerController.currentHealth + 0.1f;
+            playerController.currentHealth = playerController.currentHealth + 0.2f;
+            playerController.healthSound.Play();
         }
 
         if (other.CompareTag("Asteroid"))
         {
             Destroy(other.gameObject);
+            playerController.RandomExplosionSound();
         }
     }
 }

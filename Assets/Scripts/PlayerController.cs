@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     public float currentHealth;
     public Image healthBar;
     public float enemyDamage = 0.1f;
+    public float asteroidDamage = 0.1f;
     [Header("Game Over")]
     public bool gameOver = false;
     public GameObject gameOverUI;
@@ -46,6 +47,14 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI killsText;
     private int kills = 0;
     public TextMeshProUGUI highScoreText;
+    [Header("Sound")]
+    public AudioSource shootingSound;
+    public AudioSource shieldSound;
+    public AudioSource explosionSound;
+    public AudioSource explosion2Sound;
+    public AudioSource powerUpSound;
+    public AudioSource healthSound;
+    public AudioSource alarmSound;
 
     void Start()
     {
@@ -104,6 +113,18 @@ public class PlayerController : MonoBehaviour
         currentTilt = Mathf.Lerp(targetTilt, currentTilt, Time.deltaTime * tiltSpeed);
         transform.rotation = Quaternion.Euler(0f, 0f, currentTilt).normalized;
 
+    }
+    public void RandomExplosionSound()
+    {
+        int explosiveSoundValue = Random.Range(1, 3);
+        if (explosiveSoundValue == 1)
+        {
+            explosionSound.Play();
+        }
+        if (explosiveSoundValue == 2)
+        { 
+            explosion2Sound.Play(); 
+        }
     }
 
     public void UpdateScore(int score)
@@ -184,6 +205,7 @@ public class PlayerController : MonoBehaviour
 
     void ShootingProjectile()
     {
+        shootingSound.Play();
         Instantiate(projectilePrefab, firePoint.transform.position, projectilePrefab.transform.rotation);
     }
 }
